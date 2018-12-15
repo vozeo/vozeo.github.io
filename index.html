@@ -329,7 +329,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/12/15/Linux常用配置/" class="post-title-link" itemprop="vozeo.xyz/index.html">Linux常见使用peizhi</a>
+                <a href="/2018/12/15/Linux常用配置/" class="post-title-link" itemprop="vozeo.xyz/index.html">Linux常见配置</a>
               
             
           </h1>
@@ -354,7 +354,7 @@
                 
               
 
-              <time title="创建时间：2018-12-15 20:05:01 / 修改时间：20:15:20" itemprop="dateCreated datePublished" datetime="2018-12-15T20:05:01+08:00">2018-12-15</time>
+              <time title="创建时间：2018-12-15 20:05:01 / 修改时间：20:47:59" itemprop="dateCreated datePublished" datetime="2018-12-15T20:05:01+08:00">2018-12-15</time>
             
 
             
@@ -393,36 +393,16 @@
 
       
         
+          <p>Linux系统配置和软件配置。</p>
+          <!--noindex-->
           
-            <a id="more"></a>
-<h3 id="Zsh配置"><a href="#Zsh配置" class="headerlink" title="Zsh配置"></a>Zsh配置</h3><p>安装zsh shell<code>sudo apt install zsh oh-my-zsh oh-my-zsh-installer</code></p>
-<p>安装oh-my-zsh<code>install-oh-my-zsh</code></p>
-<p>更改你的默认登入shell为zsh<code>sudo chshll -s /bin/zsh vozeo</code></p>
-<p>配置zsh插件：</p>
-<blockquote>
-<p>thefuck<br>sudo</p>
-</blockquote>
-<p>在zsh配置文件～/.zshrc中把nvim别名改成vim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias vim=&apos;nvim&apos;</span><br><span class="line">alias vi=&apos;nvim&apos;</span><br></pre></td></tr></table></figure>
-<p>下载打包好的<a href="https://github.com/powerline/fonts/tree/master/FiraMono" target="_blank" rel="noopener">powerline字体</a></p>
-<p>安装powerline主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme ~/.ohmyzsh-powerline</span><br><span class="line">cd ~/.ohmyzsh-powerline</span><br></pre></td></tr></table></figure>
-<p>编辑<code>ZSH_THEME=&quot;powerline&quot;</code></p>
-<h3 id="Nvim配置"><a href="#Nvim配置" class="headerlink" title="Nvim配置"></a>Nvim配置</h3><p><code>~/.config/nvim/init.vim</code></p>
-<p>设置airline字体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">`let g:airline_powerline_fonts = 1`</span><br><span class="line">`let g:airline#extensions#tabline#enabled = 1`</span><br></pre></td></tr></table></figure>
-<p>用pip更新python-nvim<br><code>pip3 install neovim --upgrade</code></p>
-<p>修改完以后刷新<code>source ~/.zshrc</code></p>
-<p>修改airline主题</p>
-<p>在<code>init.vim</code>文件中写<code>let g:airline_theme=&quot;deus&quot;</code><br>双字宽<code>set ambiwidth=double</code></p>
-<h3 id="在终端使用代理"><a href="#在终端使用代理" class="headerlink" title="在终端使用代理"></a>在终端使用代理</h3><ol>
-<li>安装<code>sudo apt install proxychains</code></li>
-<li>在<code>/etc/proxychains.conf</code>最下方添加<code>socks5 127.0.0.1 1080</code></li>
-<li>把其他的注释掉</li>
-<li>在命令前加<code>proxychains</code></li>
-</ol>
-
-          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/15/Linux常用配置/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
         
       
     </div>
