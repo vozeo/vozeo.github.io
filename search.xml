@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Linux常见配置]]></title>
+    <url>%2F2018%2F12%2F15%2FLinux%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[Linux系统配置和软件配置。 Zsh配置安装zsh shellsudo apt install zsh oh-my-zsh oh-my-zsh-installer 安装oh-my-zshinstall-oh-my-zsh 更改你的默认登入shell为zshsudo chshll -s /bin/zsh vozeo 配置zsh插件： thefucksudo 在zsh配置文件～/.zshrc中把nvim别名改成vim 12alias vim=&apos;nvim&apos;alias vi=&apos;nvim&apos; 下载打包好的powerline字体 安装powerline主题 12git clone git://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme ~/.ohmyzsh-powerlinecd ~/.ohmyzsh-powerline 编辑ZSH_THEME=&quot;powerline&quot; Nvim配置~/.config/nvim/init.vim 设置airline字体 12`let g:airline_powerline_fonts = 1``let g:airline#extensions#tabline#enabled = 1` 用pip更新python-nvimpip3 install neovim --upgrade 修改完以后刷新source ~/.zshrc 修改airline主题 在init.vim文件中写let g:airline_theme=&quot;deus&quot;双字宽set ambiwidth=double 在终端使用代理 安装sudo apt install proxychains 在/etc/proxychains.conf最下方添加socks5 127.0.0.1 1080 把其他的注释掉 在命令前加proxychains]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数论基础]]></title>
+    <url>%2F2018%2F08%2F19%2F%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[数学博大精深。 最大公因数算术基本定理 任何一个大于$1$的正整数都能分解为有限个质数的乘积。 欧几里得算法原理：$\gcd(a,b)=\gcd(b,a \bmod b)$ 复杂度:$O(\log n)$。 代码实现：1234int gcd(int a, int b)&#123; return b ? gcd(b, a % b) : a;&#125; 更相减损术原理：$\gcd(a,b)=\gcd(b,a-b)$ 高精度取余不好做时可用这个代替，实现与欧几里得算法相似。 质数Eratosthenes筛法对于每一个质数，除了自己以外，它的倍数一定不是质数，需要筛去，留下的都是质数。 复杂度$O(n\log\log n)$。（不会证明） 代码实现：123456789101112int pri[N];bool vis[N];void Eratosthenes(int n)&#123; for (int i = 2; i * i &lt;= n; ++i) if (!vis[i]) for(int j = i + i; j &lt;= n; j += i) vis[i] = 1; for (int i = 2; i &lt;= n; i++) if(!vis[i]) pri[++cnt] = i;&#125; 欧拉筛线性筛法。对于每一个数从最小的质因数从小到大开始筛去，保证分解是唯一的，避免重复筛除。用途不仅仅是筛质数哟！ 复杂度$O(n)$。 代码实现：12345678910111213141516int cnt, pri[N];bool vis[N];void prime(int n)&#123; for (int i = 2; i &lt;= n; i++) &#123; if (!vis[i]) pri[++cnt] = i; for (int j = 1; j &lt;= cnt &amp;&amp; i * pri[j] &lt;= n; j++) &#123; vis[j * pri[j]] = 1; if (i % pri[j] == 0) //说明有比pri[j]更小的质数已经筛过它了 break; &#125; &#125;&#125; 当$n&gt;5$时，质数总是出现在$6$的倍数的两侧，可以让$i$每次自增$6$进行优化。此外，当提问次数很大时，还可用$Miller-Rabin$算法进一步降低复杂度。 方程裴蜀定理 关于$x$和$y$的线性丢番图方程$ax+by=d$有解当且仅当$\gcd(a,b)|d$。 扩展欧几里得算法求出两个数的最大公因数，并求出方程$ax+by=\gcd(a,b)$的一组绝对值最小的整数解或判断它无解。 当我们用欧几里得算法求解最大公因数的最后一步， 即$a=\gcd(a,b),b=0$时， 方程$ax+by=\gcd(a,b)$的解为$x=1,y=0$， 即$$a’\times1+b’\times0=\gcd(a,b)$$ 对于每一个已知解的方程，设此时的两个数为$a’,b’$， 则有$a’x+b’y=\gcd(a,b)$， 此时的$a’,b’$时由上一步的$b,a\bmod b$计算得来， 即$a’=b,b’=a\mod b$， $$\Longrightarrow bx+(a\bmod b)y=\gcd(a,b)$$ $$\Longrightarrow bx+(a- \lfloor \frac{a}{b} \rfloor \times b)y=\gcd(a,b)$$ （$\lfloor \rfloor$为向下取整） $$\Longrightarrow ay+b(x- \lfloor \frac{a}{b} \rfloor y)=\gcd(a,b)$$ 设此时的解为$x’,y’$，则$x’=y,y’=x- \lfloor \frac{a}{b} \rfloor y$ 一层层向上递归可得原方程的解。 代码实现：1234567891011int exgcd(int a, int b, int &amp;x, int &amp;y)&#123; if(!b) &#123; x = 1, y = 0; return a; &#125; int d = exgcd(a, b, y, x); y -= (a / b) * x; return d;&#125; 此时求出的解为$ax+by=\gcd(a,b)$的一组解$x_0,y_0$，若要求$ax+by=d(\gcd(a,b)|d)$的解， 设$c=\gcd(a,b)$，方程的通解为$$x=x_0\frac{d}{c}+k\frac{b}{c},y=y_0\frac{d}{c}-k\frac{a}{c}(k\in\mathbb{Z})$$ 一次同余方程一元一次同余方程$ax\equiv b\pmod m$ 转化为$ax+my=b$即可。 多元一次同余方程使用中国剩余定理或者多次$exgcd$。 中国剩余定理方程组$$\left\{\begin{aligned}x\equiv a_1\pmod {m_1} \\x\equiv a_2\pmod {m_2}\\……\\x\equiv a_n\pmod {m_n}\end{aligned}\right.$$ （其中$m$两两互质）的通解为$ \sum_{i=1}^{n}M_ia_it_i $，设$ M=\sum_{i=1}^{n} m_i $，其中$M_i=\frac{M}{m_i} $，$t_i$为$M_i$模$m_i$的乘法逆元。 证明：乘$M_i$则整除其他的$m$，乘$t_i$则整除$m_i$，乘$a_i$则模$m_i$为$a$。 扩展中国剩余定理模数$m$不是两两互质，此时扩展中国剩余定理不再适用。 考虑两个不定方程，可用$exgcd$求出他们的通解，将这两个方程转化为一个，模数变成他们的最小公倍数。进行n次即可。 快速幂快速求出$a^b\bmod p$。有递归和位运算两种实现，每次将指数$b$降低为$\frac{b}{2}$。快速乘同理。 复杂度$O(\log n)$。 代码实现：123456789101112int qpow(int a, int b, int p)&#123; int ans = 1; while(b) &#123; if(b &amp; 1) ans = (long long)ans * a % p; a = (long long)a * a % p; b &gt;&gt;= 1; &#125; return ans;&#125; 还有很多，待更。$\LaTeX$真是美妙的工具。]]></content>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[第一次搭建博客]]></title>
+    <url>%2F2018%2F08%2F19%2F%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[今天新搭建了博客，把自己遇到的问题总结一下。 主要参考了网上的教程，后来又按照ouuan的博客重新搭了一遍。 切换到国内npm镜像1npm config set registry https://registry.npm.taobao.org 升级npm1.查看当前版本npm -v2.进行npm自动更新npm install npm@latest -g 升级node1.查看当前版本node -v2.清除缓存sudo npm cache clean -f3.安装node版本管理工具sudo npm install n -g4.升级到最新版本sudo n latest 测试一下markdown1#include&lt;bits/stdc++.h&gt; 列表delete 分割线 引用 略略略 嘤嘤嘤 喵喵喵 咩咩咩 斜体table 1 2 3 哈哈 呜呜 略略 return 0;]]></content>
+  </entry>
+</search>
