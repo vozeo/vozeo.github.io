@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="Linux系统和软件配置。">
-<meta name="keywords" content="linux 配置">
+  <meta name="description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
+<meta name="keywords" content="服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux常见配置">
-<meta property="og:url" content="vozeo.xyz/2018/12/15/Linux常用配置/index.html">
+<meta property="og:title" content="服务器OJ">
+<meta property="og:url" content="vozeo.xyz/2019/02/21/服务器OJ/index.html">
 <meta property="og:site_name" content="Vozeo&#39;s Blog">
-<meta property="og:description" content="Linux系统和软件配置。">
+<meta property="og:description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-12T10:36:47.545Z">
+<meta property="og:updated_time" content="2019-02-21T09:27:09.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux常见配置">
-<meta name="twitter:description" content="Linux系统和软件配置。">
+<meta name="twitter:title" content="服务器OJ">
+<meta name="twitter:description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
 
 
 
 
 
 
-  <link rel="canonical" href="vozeo.xyz/2018/12/15/Linux常用配置/">
+  <link rel="canonical" href="vozeo.xyz/2019/02/21/服务器OJ/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>Linux常见配置 | Vozeo's Blog</title>
+  <title>服务器OJ | Vozeo's Blog</title>
   
 
 
@@ -363,7 +363,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="vozeo.xyz/2018/12/15/Linux常用配置/">
+    <link itemprop="mainEntityOfPage" href="vozeo.xyz/2019/02/21/服务器OJ/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vozeo">
@@ -380,7 +380,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux常见配置
+          <h1 class="post-title" itemprop="name headline">服务器OJ
 
               
             
@@ -406,24 +406,12 @@
                 
               
 
-              <time title="创建时间：2018-12-15 20:05:01" itemprop="dateCreated datePublished" datetime="2018-12-15T20:05:01+08:00">2018-12-15</time>
+              <time title="创建时间：2019-02-21 17:18:25 / 修改时间：17:27:09" itemprop="dateCreated datePublished" datetime="2019-02-21T17:18:25+08:00">2019-02-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-12 18:36:47" itemprop="dateModified" datetime="2019-02-12T18:36:47+08:00">2019-02-12</time>
               
             
           </span>
@@ -456,43 +444,15 @@
       
 
       
-        <p>Linux系统和软件配置。</p>
+        <p>最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。</p>
 <a id="more"></a>
-<h3 id="Ubuntu更换软件源"><a href="#Ubuntu更换软件源" class="headerlink" title="Ubuntu更换软件源"></a>Ubuntu更换软件源</h3><p>在<code>/etc/apt/sources.list</code>下加入软件源（18.04LTS）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<h3 id="配置archlinuxcn源"><a href="#配置archlinuxcn源" class="headerlink" title="配置archlinuxcn源"></a>配置archlinuxcn源</h3><p>在配置文件<code>/etc/pacman.conf</code>后添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
-<p>导入GPG key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-<h3 id="配置官方镜像源"><a href="#配置官方镜像源" class="headerlink" title="配置官方镜像源"></a>配置官方镜像源</h3><p>更新镜像排名和数据源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br><span class="line">sudo pacman -Syy</span><br></pre></td></tr></table></figure>
-<p>更新archlinux签名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S archlinux-keyring</span><br></pre></td></tr></table></figure>
-<h3 id="安装输入法"><a href="#安装输入法" class="headerlink" title="安装输入法"></a>安装输入法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-sogoupinyin</span><br><span class="line">sudo pacman -S fcitx-im</span><br><span class="line">sudo pacman -S fcitx-configtool</span><br></pre></td></tr></table></figure>
-<p>在配置文件<code>~/.xprofile</code>后添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure>
-<p>使用可视化界面调节输入法设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fcitx-configtool</span><br></pre></td></tr></table></figure>
-<h3 id="修改grub"><a href="#修改grub" class="headerlink" title="修改grub"></a>修改grub</h3><p>修改配置文件<code>/boot/grub/grub.cfg</code></p>
-<h3 id="Zsh配置"><a href="#Zsh配置" class="headerlink" title="Zsh配置"></a>Zsh配置</h3><p>安装zsh shell<code>sudo apt install zsh</code></p>
-<p>安装oh-my-zsh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
-<p>更改默认shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh vozeo</span><br><span class="line">sudo chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-<p>在zsh配置文件<code>~/.zshrc</code>中修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">agnoster</span><br><span class="line">sudo</span><br><span class="line">alias vim=&apos;nvim&apos;</span><br></pre></td></tr></table></figure>
-<p>下载打包好的<a href="https://github.com/powerline/fonts/tree/master/FiraMono" target="_blank" rel="noopener">powerline字体</a></p>
-<p>修改完以后刷新<code>source ~/.zshrc</code></p>
-<h3 id="Nvim配置"><a href="#Nvim配置" class="headerlink" title="Nvim配置"></a>Nvim配置</h3><p>安装Plug</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
-<p>修改nvim配置<code>~/.config/nvim/init.vim</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">call plug#begin()</span><br><span class="line">Plug &apos;vim-airline/vim-airline&apos;</span><br><span class="line">Plug &apos;vim-airline/vim-airline-themes&apos;</span><br><span class="line">Plug &apos;jiangmiao/auto-pairs&apos;</span><br><span class="line">call plug#end()</span><br><span class="line"></span><br><span class="line">let g:airline#extensions#tabline#enabled=1</span><br><span class="line">let g:airline_powerline_fonts=1</span><br><span class="line">set number</span><br><span class="line">set ruler</span><br><span class="line">set mouse=a</span><br><span class="line">set history=1000</span><br><span class="line">set ignorecase</span><br><span class="line">set autoindent</span><br><span class="line">set smartindent</span><br><span class="line">set shiftwidth=4</span><br><span class="line">set tabstop=4</span><br><span class="line">&quot;imap &#123;&lt;CR&gt; &#123;&lt;ESC&gt;o&#125;&lt;ESC&gt;O</span><br><span class="line">autocmd FileType cpp map &lt;F4&gt; &lt;Esc&gt;:w&lt;CR&gt;:!g++ % -O2 -Wall -Wshadow -o ./%&lt; &lt;CR&gt;</span><br><span class="line">autocmd FileType cpp map &lt;F5&gt; &lt;Esc&gt;:w&lt;CR&gt;:!g++ % -O2 -Wall -Wshadow -o ./%&lt; &amp;&amp; ./%&lt; &lt;CR&gt;</span><br><span class="line">autocmd FileType cpp map &lt;F7&gt; &lt;Esc&gt;:w&lt;CR&gt;:!g++ % -Og -g -Wall -Wshadow -o ./%&lt; &amp;&amp; gdb ./%&lt; &lt;CR&gt;</span><br></pre></td></tr></table></figure>
-<p>更新python-nvim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip python3-pip</span><br><span class="line">pip install neovim --upgrade</span><br><span class="line">pip3 install neovim --upgrade</span><br></pre></td></tr></table></figure>
-<h3 id="函数名高亮"><a href="#函数名高亮" class="headerlink" title="函数名高亮"></a>函数名高亮</h3><p>在<code>/usr/share/nvim/syntax/c.vim</code>后添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;highlight Functions</span><br><span class="line">syn match cFunctions &quot;\&lt;[a-zA-Z_][a-zA-Z_0-9]*\&gt;[^()]*)(&quot;me=e-2</span><br><span class="line">syn match cFunctions &quot;\&lt;[a-zA-Z_][a-zA-Z_0-9]*\&gt;\s*(&quot;me=e-1</span><br><span class="line">hi cFunctions gui=NONE cterm=bold ctermfg=blue</span><br></pre></td></tr></table></figure>
-<h3 id="在终端使用代理"><a href="#在终端使用代理" class="headerlink" title="在终端使用代理"></a>在终端使用代理</h3><p>安装<code>sudo apt install proxychains</code><br>在<code>/etc/proxychains.conf</code>最下方添加<code>socks5 127.0.0.1 1080</code></p>
-<h3 id="Konsole配色（solarized改进版）"><a href="#Konsole配色（solarized改进版）" class="headerlink" title="Konsole配色（solarized改进版）"></a>Konsole配色（solarized改进版）</h3><p>前景：灰色<code>#93a1a1</code><br>背景：蓝黑<code>#002b36</code><br>颜色1：黑色<code>#073642</code><br>颜色2：红色<code>#dc322f</code><br>颜色3：绿色<code>#859900</code><br>颜色4：黄色<code>#b58900</code><br>颜色5：蓝色<code>#268bd2</code><br>颜色6：洋红<code>#d33682</code><br>颜色7：浅蓝<code>#5ed5fd</code></p>
+<p>搭建教程在<a href="https://github.com/syzoj/syzoj" target="_blank" rel="noopener">这里</a>，已经写的很清楚啦。</p>
+<p>数据库需要输入密码的时候可以直接按回车跳过，否则需要输入<code>mysql -p</code>登录。</p>
+<p>上传数据遇到<code>413</code>错误是因为nginx上传限制太小，修改配置文件即可。</p>
+<p>出现<code>cannot GET /</code>重启一下服务就好了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart syzoj-web</span><br></pre></td></tr></table></figure>
+<p>通过管理上传数据包出现<code>403</code>错误，安装<code>p7zip-full</code>即可解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install p7zip-full</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -516,7 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux-配置/" rel="tag"># linux 配置</a>
+            <a href="/tags/服务器/" rel="tag"># 服务器</a>
           
         </div>
       
@@ -529,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/19/数论基础/" rel="next" title="数论基础">
-                <i class="fa fa-chevron-left"></i> 数论基础
+              <a href="/2019/02/12/BZOJ刷题表/" rel="next" title="BZOJ刷题表">
+                <i class="fa fa-chevron-left"></i> BZOJ刷题表
               </a>
             
           </div>
@@ -538,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/23/VSCode配置/" rel="prev" title="VSCode配置">
-                VSCode配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -586,17 +542,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -667,22 +614,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu更换软件源"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu更换软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置archlinuxcn源"><span class="nav-number">2.</span> <span class="nav-text">配置archlinuxcn源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置官方镜像源"><span class="nav-number">3.</span> <span class="nav-text">配置官方镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装输入法"><span class="nav-number">4.</span> <span class="nav-text">安装输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改grub"><span class="nav-number">5.</span> <span class="nav-text">修改grub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zsh配置"><span class="nav-number">6.</span> <span class="nav-text">Zsh配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nvim配置"><span class="nav-number">7.</span> <span class="nav-text">Nvim配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数名高亮"><span class="nav-number">8.</span> <span class="nav-text">函数名高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在终端使用代理"><span class="nav-number">9.</span> <span class="nav-text">在终端使用代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Konsole配色（solarized改进版）"><span class="nav-number">10.</span> <span class="nav-text">Konsole配色（solarized改进版）</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
