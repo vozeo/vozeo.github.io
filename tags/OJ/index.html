@@ -104,25 +104,20 @@
 
 
 
-  <meta name="description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
-<meta name="keywords" content="服务器">
-<meta property="og:type" content="article">
-<meta property="og:title" content="服务器OJ">
-<meta property="og:url" content="vozeo.xyz/2019/02/21/服务器OJ/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Vozeo&#39;s Blog">
+<meta property="og:url" content="vozeo.xyz/tags/OJ/index.html">
 <meta property="og:site_name" content="Vozeo&#39;s Blog">
-<meta property="og:description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T09:30:44.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务器OJ">
-<meta name="twitter:description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
+<meta name="twitter:title" content="Vozeo&#39;s Blog">
 
 
 
 
 
 
-  <link rel="canonical" href="vozeo.xyz/2019/02/21/服务器OJ/">
+  <link rel="canonical" href="vozeo.xyz/tags/OJ/">
 
 
 
@@ -132,7 +127,7 @@
   };
 </script>
 
-  <title>服务器OJ | Vozeo's Blog</title>
+  <title>标签: OJ | Vozeo's Blog</title>
   
 
 
@@ -180,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -255,7 +250,7 @@
         
         
           
-          <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags menu-item-active">
 
     
     
@@ -343,186 +338,79 @@
           
             
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>OJ<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
-
-  
+      
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="vozeo.xyz/2019/02/21/服务器OJ/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vozeo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vozeo's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/02/21/OnlineJudge/" itemprop="url">
+              
+                <span itemprop="name">OnlineJudge</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">服务器OJ
+      </h2>
 
-              
-            
-          </h1>
-        
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-02-21T17:18:25+08:00" content="2019-02-21">
+          02-21
+        </time>
+      </div>
 
-        <div class="post-meta">
-          <span class="post-time">
+    </header>
+  </article>
 
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-21 17:18:25 / 修改时间：17:30:44" itemprop="dateCreated datePublished" datetime="2019-02-21T17:18:25+08:00">2019-02-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。</p>
-<a id="more"></a>
-<p>临时地址：<a href="http://39.105.15.76/" target="_blank" rel="noopener">http://39.105.15.76/</a></p>
-<p>搭建教程在<a href="https://github.com/syzoj/syzoj" target="_blank" rel="noopener">这里</a>，已经写的很清楚啦。</p>
-<p>数据库需要输入密码的时候可以直接按回车跳过，否则需要输入<code>mysql -p</code>登录。</p>
-<p>上传数据遇到<code>413</code>错误是因为nginx上传限制太小，修改配置文件即可。</p>
-<p>出现<code>cannot GET /</code>重启一下服务就好了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart syzoj-web</span><br></pre></td></tr></table></figure>
-<p>通过管理上传数据包出现<code>403</code>错误，安装<code>p7zip-full</code>即可解决。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install p7zip-full</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/服务器/" rel="tag"># 服务器</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/12/BZOJ刷题表/" rel="next" title="BZOJ刷题表">
-                <i class="fa fa-chevron-left"></i> BZOJ刷题表
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
 
   
 
 
+          </div>
+          
 
         </div>
         
@@ -561,7 +449,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -588,9 +476,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -746,10 +632,6 @@
 
 
   
-  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/js/src/post-details.js?v=6.6.0"></script>
-
-
 
   
 
