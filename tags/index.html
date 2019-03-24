@@ -417,10 +417,14 @@
                     
                   
                 
-                目前共计 6 个标签
+                  
+                    
+                  
+                
+                目前共计 7 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/Blog/" style="font-size: 12px; color: #ccc">Blog</a> <a href="/tags/OJ/" style="font-size: 12px; color: #ccc">OJ</a> <a href="/tags/linux/" style="font-size: 12px; color: #ccc">linux</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/线段树-数据结构/" style="font-size: 12px; color: #ccc">线段树 数据结构</a> <a href="/tags/题目/" style="font-size: 12px; color: #ccc">题目</a>
+              <a href="/tags/Blog/" style="font-size: 12px; color: #ccc">Blog</a> <a href="/tags/OJ/" style="font-size: 12px; color: #ccc">OJ</a> <a href="/tags/linux/" style="font-size: 12px; color: #ccc">linux</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/数据结构/" style="font-size: 12px; color: #ccc">数据结构</a> <a href="/tags/线段树/" style="font-size: 12px; color: #ccc">线段树</a> <a href="/tags/题目/" style="font-size: 12px; color: #ccc">题目</a>
             </div>
           </div>
         
@@ -441,6 +445,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
 
   
 
@@ -510,7 +518,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -690,6 +700,31 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'oalDXfs3tYX67suQrkJlExxJ-gzGzoHsz',
+        appKey: 'dreAPRMCyuH9g4kADiQcciAf',
+        placeholder: 'Just go goヾﾉ≧∀≦)~',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
