@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[整除分块]]></title>
+    <url>%2F2019%2F03%2F25%2F%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[最近几天在学数论。发现有很多小技巧，比如一些式子的推导变形以及求和。整数分块就是一个小的求和技巧。 大神们的博客讲到在一些数论题里，经常有这样的式子： $$\sum_{i = 1}^n \left \lfloor \frac{n}{i} \right \rfloor$$ 如果用朴素方法，需要$O(n)$的复杂度。 但是可以注意到，由于下取整符号的存在，右边的值只可能有$\sqrt n$种取值，这启发我们用分块的思想，在$O(\sqrt n)$的时间内算出来。 通过打表发现，取值为$\left \lfloor \frac{n}{i} \right \rfloor$的块的右边界为$\frac{n}{\lfloor \frac{n}{i} \rfloor}$，于是就能算出来啦。 此处应该有一个证明。 12345for (int l = 1, r; l &lt;= n; l = r + 1) &#123; r = n / (n / l); sum += (r - l + 1) * (n / l); // something else&#125;]]></content>
+      <tags>
+        <tag>数论</tag>
+        <tag>分块</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[OnlineJudge]]></title>
     <url>%2F2019%2F02%2F21%2FOnlineJudge%2F</url>
     <content type="text"><![CDATA[最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。 临时地址：http://39.105.15.76/ 搭建教程在这里，已经写的很清楚啦。 数据库需要输入密码的时候可以直接按回车跳过，否则需要输入mysql -p登录。 上传数据遇到413错误是因为nginx上传限制太小，修改配置文件即可。 出现cannot GET /重启一下服务就好了。 1systemctl restart syzoj-web 通过管理上传数据包出现403错误，安装p7zip-full即可解决。 1apt install p7zip-full]]></content>
