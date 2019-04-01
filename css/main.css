@@ -513,7 +513,7 @@ pre,
 }
 pre,
 code {
-  font-family: 'Fira Mono', consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: "Fira Mono", "Fira Mono", Consolas, Monaco, Menlo, monospace;
 }
 code {
   overflow-wrap: break-word;
@@ -1867,7 +1867,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d01850;
+  background: #f19982;
 }
 .links-of-blogroll {
   font-size: 13px;
