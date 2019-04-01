@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
-<meta name="keywords" content="OJ">
+  <meta name="description" content="珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。">
+<meta name="keywords" content="暴力,数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OnlineJudge">
-<meta property="og:url" content="vozeo.xyz/2019/02/21/OnlineJudge/index.html">
+<meta property="og:title" content="珂朵莉树学习笔记">
+<meta property="og:url" content="vozeo.xyz/2019/04/01/珂朵莉树学习笔记/index.html">
 <meta property="og:site_name" content="Vozeo&#39;s Blog">
-<meta property="og:description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
+<meta property="og:description" content="珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-26T08:35:46.776Z">
+<meta property="og:updated_time" content="2019-04-01T03:44:23.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OnlineJudge">
-<meta name="twitter:description" content="最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。">
+<meta name="twitter:title" content="珂朵莉树学习笔记">
+<meta name="twitter:description" content="珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。">
 
 
 
 
 
 
-  <link rel="canonical" href="vozeo.xyz/2019/02/21/OnlineJudge/">
+  <link rel="canonical" href="vozeo.xyz/2019/04/01/珂朵莉树学习笔记/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>OnlineJudge | Vozeo's Blog</title>
+  <title>珂朵莉树学习笔记 | Vozeo's Blog</title>
   
 
 
@@ -363,7 +363,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="vozeo.xyz/2019/02/21/OnlineJudge/">
+    <link itemprop="mainEntityOfPage" href="vozeo.xyz/2019/04/01/珂朵莉树学习笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vozeo">
@@ -380,7 +380,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OnlineJudge
+          <h1 class="post-title" itemprop="name headline">珂朵莉树学习笔记
 
               
             
@@ -406,24 +406,12 @@
                 
               
 
-              <time title="创建时间：2019-02-21 17:18:25" itemprop="dateCreated datePublished" datetime="2019-02-21T17:18:25+08:00">2019-02-21</time>
+              <time title="创建时间：2019-04-01 10:45:22 / 修改时间：11:44:23" itemprop="dateCreated datePublished" datetime="2019-04-01T10:45:22+08:00">2019-04-01</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-26 16:35:46" itemprop="dateModified" datetime="2019-03-26T16:35:46+08:00">2019-03-26</time>
               
             
           </span>
@@ -437,8 +425,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/21/OnlineJudge/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/OnlineJudge/" itemprop="commentCount"></span>
+                <a href="/2019/04/01/珂朵莉树学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/01/珂朵莉树学习笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -466,18 +454,48 @@
       
 
       
-        <p>最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。</p>
-<a id="more"></a>
-<p>临时地址：<a href="http://39.105.15.76/" target="_blank" rel="noopener">http://39.105.15.76/</a></p>
-<p>搭建教程在<a href="https://github.com/syzoj/syzoj" target="_blank" rel="noopener">这里</a>，已经写的很清楚啦。</p>
-<p>数据库需要输入密码的时候可以直接按回车跳过，否则需要输入<code>mysql -p</code>登录。</p>
-<p>上传数据遇到<code>413</code>错误是因为nginx上传限制太小，修改配置文件即可。</p>
-<p>出现<code>cannot GET /</code>重启一下服务就好了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart syzoj-web</span><br></pre></td></tr></table></figure>
-<p>通过管理上传数据包出现<code>403</code>错误，安装<code>p7zip-full</code>即可解决。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install p7zip-full</span><br></pre></td></tr></table></figure>
-<p>定时更新，按照Wiki的提示安装软件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+        <p>珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。<br><a id="more"></a></p>
+<h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><ul>
+<li>含有区间赋值操作。</li>
+<li>操作随机或者区间赋值操作较多。</li>
+<li>维护区间高次幂。</li>
+</ul>
+<h3 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h3><p>把连续一段相同的值合并成一块，用set维护这些块。</p>
+<p>随机数据下期望复杂度$O(m\log n)$（$m$为操作数，$n$为序列内数字个数）。</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r;</span><br><span class="line">	<span class="keyword">mutable</span> <span class="keyword">int</span> v;</span><br><span class="line">	Node() &#123;&#125;</span><br><span class="line">	Node(<span class="keyword">int</span> x, <span class="keyword">int</span> y = <span class="number">-1</span>, <span class="keyword">int</span> z = <span class="number">0</span>) : l(x), r(y), v(z) &#123;&#125;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;rhs) <span class="keyword">const</span> &#123; </span><br><span class="line">		<span class="keyword">return</span> l &lt; rhs.l;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注意：用<code>iterator</code>修改值时，该值必须为<code>mutable</code>形式。默认是只读，不这样写不能编译通过。</p>
+<h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p>把一个块分裂为两块。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;Node&gt; s;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">set</span>&lt;Node&gt;::iterator Iter;</span><br><span class="line"><span class="function">Iter <span class="title">split</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">	Iter it = s.lower_bound(Node(pos));</span><br><span class="line">	<span class="keyword">if</span> (it != s.end() &amp;&amp; it-&gt;l == pos) <span class="comment">// ***</span></span><br><span class="line">		<span class="keyword">return</span> it;</span><br><span class="line">	--it;</span><br><span class="line">	<span class="keyword">int</span> l = it-&gt;l, r = it-&gt;r, v = it-&gt;v; <span class="comment">// *** </span></span><br><span class="line">	s.erase(it);</span><br><span class="line">	s.insert(Node(l, pos - <span class="number">1</span>, v));</span><br><span class="line">	<span class="keyword">return</span> s.insert(Node(pos, r, v)).first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>默认的<code>insert</code>是<code>std::pair&lt;iterator,bool&gt; insert(const value_type &amp;value)</code>，这里用它的返回值<code>first</code>。</p>
+<p>注意：</p>
+<ul>
+<li><code>if</code>内的先后顺序，颠倒后会访问空指针出错。</li>
+<li>后面的<code>erase</code>和<code>insert</code>会使当前的<code>it</code>指针失效，指向其他地方，所以要先记下来这些值。</li>
+</ul>
+<h4 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h4><p>把连续相同数字的区间合并成一块。是珂朵莉在随机数据下复杂度的保证。</p>
+<p>在随机数据下，每次合并的期望长度为$\frac{n}{3}$。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">assign</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	Iter itr = split(r + <span class="number">1</span>), itl = split(l); <span class="comment">// ***</span></span><br><span class="line">	s.erase(itl, itr);</span><br><span class="line">	s.insert(Node(l, r, v));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>void erase(iterator first, iterator last)</code>可删除<code>[first,last)</code>区间。</p>
+<p>注意：取区间的时候应当先取后面再取前面，否则取完前面后，后面的指针会发生变化。</p>
+<h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><p>全是暴力，具体见代码。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>CF896C。也是珂朵莉树的来源。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i_, s_, t_) for (int i_ = (s_); i_ &lt;= (t_); ++i_)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>, P = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line">ll seed;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll o, <span class="keyword">int</span> x, <span class="keyword">int</span> mod)</span> </span>&#123;</span><br><span class="line">	ll res = <span class="number">1</span>;</span><br><span class="line">	o %= mod; <span class="comment">// ***</span></span><br><span class="line">	<span class="keyword">for</span> (; x; o = o * o % mod, x &gt;&gt;= <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">if</span> (x &amp; <span class="number">1</span>)</span><br><span class="line">			res = res * o % mod;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r;</span><br><span class="line">	<span class="keyword">mutable</span> ll v;</span><br><span class="line">	Node() &#123;&#125;</span><br><span class="line">	Node(<span class="keyword">int</span> x, <span class="keyword">int</span> y = <span class="number">-1</span>, ll z = <span class="number">0</span>) : l(x), r(y), v(z) &#123;&#125;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;rhs) <span class="keyword">const</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> l &lt; rhs.l;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">set</span>&lt;Node&gt;::iterator Iter;</span><br><span class="line"><span class="built_in">set</span>&lt;Node&gt; s;</span><br><span class="line"></span><br><span class="line"><span class="function">Iter <span class="title">split</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	Iter it = s.lower_bound(Node(p));</span><br><span class="line">	<span class="keyword">if</span> (it != s.end() &amp;&amp; it-&gt;l == p)</span><br><span class="line">		<span class="keyword">return</span> it;</span><br><span class="line">	it--;</span><br><span class="line">	<span class="comment">// ***</span></span><br><span class="line">	<span class="keyword">int</span> l = it-&gt;l, r = it-&gt;r;</span><br><span class="line">	ll val = it-&gt;v;</span><br><span class="line">	s.erase(it);</span><br><span class="line">	s.insert(Node(l, p - <span class="number">1</span>, val));</span><br><span class="line">	<span class="keyword">return</span> s.insert(Node(p, r, val)).first;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">assign</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, ll v = <span class="number">0</span>)</span> </span>&#123;</span><br><span class="line">	Iter itr = split(r + <span class="number">1</span>), itl = split(l);</span><br><span class="line">	s.erase(itl, itr);</span><br><span class="line">	s.insert(Node(l, r, v));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">	Iter itr = split(r + <span class="number">1</span>), itl = split(l);</span><br><span class="line">	<span class="keyword">for</span> (; itl != itr; ++itl)</span><br><span class="line">		itl-&gt;v += val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">kth</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;pair&lt;ll, <span class="keyword">int</span>&gt; &gt; t;</span><br><span class="line">	Iter itr = split(r + <span class="number">1</span>), itl = split(l);</span><br><span class="line">	t.clear();</span><br><span class="line">	<span class="keyword">for</span> (; itl != itr; ++itl)</span><br><span class="line">		t.push_back(make_pair(itl-&gt;v, itl-&gt;r - itl-&gt;l + <span class="number">1</span>)); <span class="comment">// ***</span></span><br><span class="line">	sort(t.begin(), t.end());</span><br><span class="line">	<span class="comment">/* for (Iter it = t.begin(); it != t.end(); ++it) &#123; */</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="built_in">vector</span>&lt;pair&lt;ll, <span class="keyword">int</span>&gt; &gt;::iterator it = t.begin(); it != t.end(); ++it) &#123;</span><br><span class="line">		k -= it-&gt;second;</span><br><span class="line">		<span class="keyword">if</span> (k &lt;= <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> it-&gt;first;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> x, <span class="keyword">int</span> mod)</span> </span>&#123;</span><br><span class="line">	Iter itr = split(r + <span class="number">1</span>), itl = split(l);</span><br><span class="line">	ll ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (; itl != itr; ++itl)</span><br><span class="line">		ans = (ans + <span class="number">1l</span>l * (itl-&gt;r - itl-&gt;l + <span class="number">1</span>) * qpow(itl-&gt;v, x, mod) % mod) % mod;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rnd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ll ret = seed;</span><br><span class="line">	seed = (seed * <span class="number">7</span> + <span class="number">13</span>) % P;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//freopen("CF896C.out", "w", stdout);</span></span><br><span class="line">	<span class="keyword">int</span> n, m, vmax, op, l, r, x, y = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%lld%d"</span>, &amp;n, &amp;m, &amp;seed, &amp;vmax);</span><br><span class="line">	rep (i, <span class="number">1</span>, n) &#123;</span><br><span class="line">		a[i] = rnd() % vmax + <span class="number">1</span>;</span><br><span class="line">		s.insert(Node(i, i, a[i]));</span><br><span class="line">	&#125;</span><br><span class="line">	s.insert(Node(n + <span class="number">1</span>, n + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">	rep (i, <span class="number">1</span>, m) &#123;</span><br><span class="line">		op = rnd() % <span class="number">4</span> + <span class="number">1</span>;</span><br><span class="line">		l = rnd() % n + <span class="number">1</span>;</span><br><span class="line">		r = rnd() % n + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (l &gt; r)</span><br><span class="line">			swap(l, r);</span><br><span class="line">		<span class="keyword">if</span> (op == <span class="number">3</span>)</span><br><span class="line">			x = rnd() % (r - l + <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			x = rnd() % vmax + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (op == <span class="number">4</span>)</span><br><span class="line">			y = rnd() % vmax + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (op == <span class="number">1</span>)</span><br><span class="line">			add(l, r, x);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">2</span>)</span><br><span class="line">			assign(l, r, x);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">3</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, kth(l, r, x));</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, sum(l, r, x, y));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再放一些其他能用珂朵莉树的题。</p>
+<ol>
+<li><p>CF343D Water Tree</p>
+</li>
+<li><p>P2572 [SCOI2010]序列操作</p>
+</li>
+<li><p>P4344 [SHOI2015]脑洞治疗仪</p>
+</li>
+<li><p>CF915E Physical Education Lessons</p>
+</li>
+<li><p>P2787 语文1（chin1）- 理理思维</p>
+</li>
+<li><p>P4979 矿洞：坍塌</p>
+</li>
+</ol>
+<p>目前来看，大多数出题人都没有刻意去卡珂朵莉树，但是大部分情况下，由于数据不是随机，复杂度都是错的。</p>
+<p><strong>要谨慎使用。</strong></p>
 
       
     </div>
@@ -501,7 +519,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
+            <a href="/tags/暴力/" rel="tag"># 暴力</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -514,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/12/BZOJ刷题表/" rel="next" title="BZOJ刷题表">
-                <i class="fa fa-chevron-left"></i> BZOJ刷题表
+              <a href="/2019/03/25/整除分块/" rel="next" title="整除分块">
+                <i class="fa fa-chevron-left"></i> 整除分块
               </a>
             
           </div>
@@ -523,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/25/整除分块/" rel="prev" title="整除分块">
-                整除分块 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -653,6 +678,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用范围"><span class="nav-number">1.</span> <span class="nav-text">适用范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要原理"><span class="nav-number">2.</span> <span class="nav-text">主要原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">3.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node"><span class="nav-number">3.1.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split"><span class="nav-number">3.2.</span> <span class="nav-text">split</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#assign"><span class="nav-number">3.3.</span> <span class="nav-text">assign</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他操作"><span class="nav-number">4.</span> <span class="nav-text">其他操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目"><span class="nav-number">5.</span> <span class="nav-text">题目</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
