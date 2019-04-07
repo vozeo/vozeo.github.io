@@ -143,14 +143,14 @@
 
 
   <meta name="description" content="珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。">
-<meta name="keywords" content="暴力,数据结构">
+<meta name="keywords" content="数据结构,暴力">
 <meta property="og:type" content="article">
 <meta property="og:title" content="珂朵莉树学习笔记">
 <meta property="og:url" content="vozeo.xyz/2019/04/01/珂朵莉树学习笔记/index.html">
 <meta property="og:site_name" content="Vozeo&#39;s Blog">
 <meta property="og:description" content="珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T03:55:59.836Z">
+<meta property="og:updated_time" content="2019-04-01T11:14:11.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="珂朵莉树学习笔记">
 <meta name="twitter:description" content="珂朵莉树是一种暴力数据结构，代码较短，原理简单。适用于骗分和暴力对拍。">
@@ -444,7 +444,7 @@
                 
               
 
-              <time title="创建时间：2019-04-01 10:45:22 / 修改时间：11:55:59" itemprop="dateCreated datePublished" datetime="2019-04-01T10:45:22+08:00">2019-04-01</time>
+              <time title="创建时间：2019-04-01 10:45:22 / 修改时间：19:14:11" itemprop="dateCreated datePublished" datetime="2019-04-01T10:45:22+08:00">2019-04-01</time>
             
 
             
@@ -500,7 +500,7 @@
 </ul>
 <h3 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h3><p>把连续一段相同的值合并成一块，用<code>set</code>维护这些块。</p>
 <p>随机数据下期望复杂度$O(m\log n)$（$m$为操作数，$n$为序列内数字个数）。</p>
-<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r;</span><br><span class="line">	<span class="keyword">mutable</span> <span class="keyword">int</span> v;</span><br><span class="line">	Node() &#123;&#125;</span><br><span class="line">	Node(<span class="keyword">int</span> x, <span class="keyword">int</span> y = <span class="number">-1</span>, <span class="keyword">int</span> z = <span class="number">0</span>) : l(x), r(y), v(z) &#123;&#125;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;rhs) <span class="keyword">const</span> &#123; </span><br><span class="line">		<span class="keyword">return</span> l &lt; rhs.l;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> l, r;</span><br><span class="line">	<span class="keyword">mutable</span> <span class="keyword">int</span> v;</span><br><span class="line">	Node() &#123;&#125;</span><br><span class="line">	Node(<span class="keyword">int</span> x, <span class="keyword">int</span> y = <span class="number">-1</span>, <span class="keyword">int</span> z = <span class="number">0</span>) : l(x), r(y), v(z) &#123;&#125;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Node &amp;rhs) <span class="keyword">const</span> &#123; </span><br><span class="line">		<span class="keyword">return</span> l &lt; rhs.l;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>注意：用<code>iterator</code>修改值时，该值必须为<code>mutable</code>形式。默认是只读，不这样写不能编译通过。</p>
 <h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p>把一个块分裂为两块。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>&lt;Node&gt; s;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">set</span>&lt;Node&gt;::iterator Iter;</span><br><span class="line"><span class="function">Iter <span class="title">split</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">	Iter it = s.lower_bound(Node(pos));</span><br><span class="line">	<span class="keyword">if</span> (it != s.end() &amp;&amp; it-&gt;l == pos) <span class="comment">// ***</span></span><br><span class="line">		<span class="keyword">return</span> it;</span><br><span class="line">	--it;</span><br><span class="line">	<span class="keyword">int</span> l = it-&gt;l, r = it-&gt;r, v = it-&gt;v; <span class="comment">// *** </span></span><br><span class="line">	s.erase(it);</span><br><span class="line">	s.insert(Node(l, pos - <span class="number">1</span>, v));</span><br><span class="line">	<span class="keyword">return</span> s.insert(Node(pos, r, v)).first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>默认的<code>insert</code>是<code>std::pair&lt;iterator,bool&gt; insert(const value_type &amp;value)</code>，这里用它的返回值<code>first</code>。</p>
@@ -508,6 +508,7 @@
 <ul>
 <li><code>if</code>内的先后顺序，颠倒后会访问空指针出错。</li>
 <li>后面的<code>erase</code>和<code>insert</code>会使当前的<code>it</code>指针失效，指向其他地方，所以要先记下来这些值。</li>
+<li>函数内含有<code>erase</code>，可能会使其他<code>iterator</code>失效，调用的时候应注意这种情况。</li>
 </ul>
 <h4 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h4><p>把连续相同数字的区间合并成一块。是珂朵莉在随机数据下复杂度的保证。</p>
 <p>在随机数据下，每次合并的期望长度为$\frac{n}{3}$。</p>
@@ -557,9 +558,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/暴力/" rel="tag"># 暴力</a>
-          
             <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/暴力/" rel="tag"># 暴力</a>
           
         </div>
       
@@ -581,6 +582,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/07/splay学习笔记/" rel="prev" title="splay学习笔记">
+                splay学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -656,7 +661,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -691,7 +696,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
