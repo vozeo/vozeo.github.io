@@ -442,7 +442,7 @@
                 
               
 
-              <time title="创建时间：2019-04-07 08:21:40 / 修改时间：15:53:00" itemprop="dateCreated datePublished" datetime="2019-04-07T08:21:40+08:00">2019-04-07</time>
+              <time title="创建时间：2019-04-07 08:21:40 / 修改时间：15:54:57" itemprop="dateCreated datePublished" datetime="2019-04-07T08:21:40+08:00">2019-04-07</time>
             
 
             
@@ -491,62 +491,16 @@
 
       
         
+          <p>splay大法好。</p>
+          <!--noindex-->
           
-            <a id="more"></a>
-<p>颓了很长时间，最近什么都没做。算是迷失了方向，又找到了方向吧。曾对这个世界感到失望，但还是要有希望，有理想和目标。继续加油吧。</p>
-<blockquote>
-<p>遇见了，不后悔遇见就好。</p>
-<p>颓废有用的话，也就不会这么难受了。</p>
-<p>一定要有目标。不要管目标能不能达成，只要知道自己努力了就好。</p>
-<p>到头来回忆起的，是那段艰苦的岁月，而不是最终的瞬时的胜利。</p>
-<p>那些努力追求的东西，都是为了某一个初心。不能放弃初心。</p>
-<p>人要成长的啊。想想自己要是荒废了时间，那多亏啊。</p>
-<p>累的睡着，睡到天亮。太阳照在身上的时候，感觉很幸福。</p>
-<p>要坚定这种幸福一直都在。发现世界还是这么美好的时候，自己是没有理由崩溃的。</p>
-</blockquote>
-<p>那么，让我们来看splay吧。</p>
-<p>splay是一种平衡树。在权值上满足二叉排序树的性质，即左儿子小于自己，右儿子大于自己。通过旋转保持平衡。不像treap的一个权值还满足堆的性质，这里只有权值的大小。</p>
-<p>splay是一种自适应的数据结构。就是说，树的结构会随着操作的不同而变得更易于操作。比如说，如果插入的次数很多，插入就会变得更快。如果修改的速度很多，修改的速度就会变快。听起来非常神奇，可能需要进一步理解。</p>
-<p>splay的速度很慢，通过势能分析可以说明，大部分操作是均摊$O(\log n)$的。但事实上，跑起来比大多数的平衡树都慢。不过splay的优势是非常灵活，可以支持很多操作，但写起来很长。其实除了LCT，其他的操作都是可以替代的。不过它依然是非常重要的数据结构，而且出题人也不会去卡splay，写LCT也要用到，当然要好好学啦。</p>
-<p>这里给出指针的版本。有时候一些数据结构也可以用数组写，还是都掌握比较好。</p>
-<h3 id="核心操作"><a href="#核心操作" class="headerlink" title="核心操作"></a>核心操作</h3><h4 id="Node的定义"><a href="#Node的定义" class="headerlink" title="Node的定义"></a>Node的定义</h4><p>Node中存了当前节点的权值、子树大小、这个数字出现的次数和父亲指针、儿子指针。</p>
-<p>由于很多操作都是直接针对节点的，因此在Node中有很多函数。不过有简单的几个方法。</p>
-<p><code>maintain</code>：更新子树大小。<br><code>relation</code>：和父亲的关系。<code>0</code>表示左儿子或不存在父亲，<code>1</code>表示右儿子。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">root</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, cnt, siz;</span><br><span class="line">    Node ch[<span class="number">2</span>], *fa;</span><br><span class="line">    Node() &#123;&#125;</span><br><span class="line">    Node(<span class="keyword">int</span> x, Node *f) : v(x), cnt(<span class="number">1</span>), siz(<span class="number">1</span>), fa(f) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">maintain</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        siz = cnt + (ch[<span class="number">0</span>] ? ch[<span class="number">0</span>]-&gt;siz : <span class="number">0</span>) + (ch[<span class="number">1</span>] ? ch[<span class="number">1</span>]-&gt;siz : <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fa ? fa-&gt;ch[<span class="number">1</span>] == <span class="keyword">this</span> : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="rotate"><a href="#rotate" class="headerlink" title="rotate"></a>rotate</h4><p>旋转是splay最重要、最基本的操作了。也是保证splay复杂度正确，维护树形态的必要操作。</p>
-<p>目的是改变父子关系，调换父子的位置，把当前节点上移一位。</p>
-<p>改变树的形态的基础上，保证以下两点：</p>
-<ul>
-<li>树的中序遍历。即父子的大小关系和整个序列的值。</li>
-<li>受影响的节点的size都依然有效。</li>
-</ul>
-<p>操作步骤：</p>
-<ul>
-<li>将自身连接到祖父上，替代父亲；</li>
-<li>将和父亲关系相反的孩子与父亲连接，替代自身；</li>
-<li>将父亲连接到上一步的孩子的位置；</li>
-<li>如果此时自身为根，则更新<code>root</code>。</li>
-</ul>
-<p>kyr1no学长写了神奇的link函数，使代码变得更简单。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">link</span><span class="params">(Node *o, Node *f, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (o) o-&gt;fa = f;</span><br><span class="line">     <span class="keyword">if</span> (f) f-&gt;ch[r] = o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> rotate &#123;</span><br><span class="line">    <span class="keyword">int</span> r = rel();</span><br><span class="line">    Node f = *fa;</span><br><span class="line">    link(<span class="keyword">this</span>, f-&gt;fa, f-&gt;rel());</span><br><span class="line">    link(ch[r ^ <span class="number">1</span>], f, r);</span><br><span class="line">    link(f, <span class="keyword">this</span>, r ^ <span class="number">1</span>);</span><br><span class="line">    f-&gt;maintain();</span><br><span class="line">    maintain();</span><br><span class="line">    <span class="keyword">if</span> (!fa)</span><br><span class="line">        root = <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="splay"><a href="#splay" class="headerlink" title="splay"></a>splay</h4><p>顾名思义，这也是splay的核心函数，也被称为伸展操作。</p>
-<p>目的是把当前节点旋转到根，维护整棵树的形态。</p>
-<p>但是直接死循环判断是不可取的。一条链旋转以后还是一条链，无法保证复杂度。因此采取一些方法让其更好的旋转。</p>
-<p>发现了一张图片可以说明：<br><img src="https://ws1.sinaimg.cn/large/005S5cb6ly1fy1xahtws9g30hw0dyted.jpg" alt=""></p>
-<p>操作步骤：</p>
-<ul>
-<li>如果父亲是目标节点，直接旋转；</li>
-<li>如果父亲与祖父的关系和自己与父亲的关系相同，就先旋转父亲，再旋转自身；</li>
-<li>否则就将自身旋转两次。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">splay</span><span class="params">(Node *tar = <span class="literal">NULL</span>)</span> </span>&#123; <span class="comment">// 目标节点的父亲节点</span></span><br><span class="line">    <span class="keyword">while</span> (fa != tar) &#123;</span><br><span class="line">        <span class="keyword">if</span> (fa-&gt;fa == tar)</span><br><span class="line">            rotate();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (rel() == fa-&gt;rel())</span><br><span class="line">            fa-&gt;rotate(), rotate();</span><br><span class="line">        <span class="keyword">else</span> rotate(), rotate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>splay支持的操作很多，这里主要是平衡树的最基本操作。</p>
-<h4 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h4><p>在树中插入一个数字。<br>找到这个数的位置，如果这个数字出现过，就加上$1$，否则就新建这个节点。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    Node *o = root;</span><br><span class="line">    <span class="keyword">while</span> (o &amp;&amp; o-&gt;v != x) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="pred"><a href="#pred" class="headerlink" title="pred"></a>pred</h4><p>有两种实现，分别是找到前驱节点和找到前一个数字。<br>前驱节点当然是比它小的最大值。先splay到根，再取左子树的最大值就好啦。<br>节点版本：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node *<span class="title">pred</span><span class="params">(Node *o)</span> </span>&#123;</span><br><span class="line">    o-&gt;splay();</span><br><span class="line">    o = o-&gt;ch[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">while</span> (o-&gt;ch[<span class="number">1</span>]) </span><br><span class="line">        o = o-&gt;ch[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>数字版本：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pred</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    o-&gt;splay();</span><br><span class="line">    o = o-&gt;ch[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">while</span> (o-&gt;ch[<span class="number">1</span>]) </span><br><span class="line">        o = o-&gt;ch[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="succ"><a href="#succ" class="headerlink" title="succ"></a>succ</h4><h4 id="rank"><a href="#rank" class="headerlink" title="rank"></a>rank</h4>
-          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/07/splay学习笔记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
         
       
     </div>
