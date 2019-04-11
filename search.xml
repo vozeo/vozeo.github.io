@@ -31,7 +31,7 @@
   <entry>
     <title><![CDATA[OnlineJudge]]></title>
     <url>%2F2019%2F02%2F21%2FOnlineJudge%2F</url>
-    <content type="text"><![CDATA[最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。 临时地址：http://39.105.15.76/ 搭建教程在这里，已经写的很清楚啦。 数据库需要输入密码的时候可以直接按回车跳过，否则需要输入mysql -p登录。 上传数据遇到413错误是因为nginx上传限制太小，修改配置文件即可。 出现cannot GET /重启一下服务就好了。 1systemctl restart syzoj-web 通过管理上传数据包出现403错误，安装p7zip-full即可解决。 1apt install p7zip-full 定时更新，按照Wiki的提示安装软件 12git statusgit pull]]></content>
+    <content type="text"><![CDATA[最近搭建了一个基于syzoj的OJ，把遇到的问题总结一下。 临时地址：http://39.105.15.76/ 搭建教程在这里，已经写的很清楚啦。 数据库需要输入密码的时候可以直接按回车跳过，否则需要输入mysql -p登录。 上传数据遇到413错误是因为nginx上传限制太小，修改配置文件即可。 出现错误重启一下服务就好了。 123systemctl restart syzoj-websystemctl restart syzoj-judge-daemonsystemctl restart syzoj-judge-runner 通过管理上传数据包出现403错误，安装p7zip-full即可解决。 1apt install p7zip-full 定时更新，按照Wiki的提示安装软件 12git statusgit pull]]></content>
       <tags>
         <tag>OJ</tag>
       </tags>
