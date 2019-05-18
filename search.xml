@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[树链剖分]]></title>
+    <url>%2F2019%2F05%2F18%2F%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%2F</url>
+    <content type="text"><![CDATA[树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。 主要步骤：通过两次dfs把树剖分为链，再用线段树维护，查询的时候$O(\log n)$向上跳，再每次$O(\log n)$查询。 dfs1：确定每个点的depth、size、father、son（重儿子）。 dfs2：确定每个点的dfn、top（链顶所在的点）。先搜索重儿子，再搜轻儿子。 如果没有父亲或者父亲的重儿子不是自己，top就是自己，否则就是父亲的top。 这样搜索能保证每个点都在一条重链上，且每条重链在线段树上对应一段连续的区间，且每个子树也对应一段连续的区间。 线段树建树：建树前先把权值放到每个点的dfn的位置，用dfn建树。 查询：从两个点向上跳，每次找到深度较深的点，向上跳一条链，统计这一条链上的数据，在把当前点跳到链顶的父亲，直到两个点在同一条链上，最后区间查询两点即可。修改同理。复杂度$O(\log n)$。 常见的套路就是和点权有关，且有修改，每次修改一条路径或者一颗子树，查询一条路径或者一颗子树的点权。]]></content>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>树链剖分</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[对拍]]></title>
     <url>%2F2019%2F04%2F20%2F%E5%AF%B9%E6%8B%8D%2F</url>
     <content type="text"><![CDATA[Linux下的对拍代码。12345678910111213141516#!/bin/bashfile="problem"# for i in `seq 1 20`while truedo ./make &gt;$file$i.in time ./$file &lt;$file$i.in &gt;$file$i.out ./$file-force &lt;$file.in &gt;$file.ans if diff $file$i.out $file$i.ans then echo "AC" else echo "WA" exit 0 fidone]]></content>
