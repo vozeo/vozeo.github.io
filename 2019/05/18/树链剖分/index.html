@@ -142,18 +142,18 @@
 
 
 
-  <meta name="description" content="树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。 主要步骤：通过两次dfs把树剖分为链，再用线段树维护，查询的时候$O(\log n)$向上跳，再每次$O(\log n)$查询。 dfs1：确定每个点的depth、size、father、son（重儿子）。 dfs2：确定每">
+  <meta name="description" content="树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。">
 <meta name="keywords" content="数据结构,树链剖分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树链剖分">
 <meta property="og:url" content="vozeo.xyz/2019/05/18/树链剖分/index.html">
 <meta property="og:site_name" content="Vozeo&#39;s Blog">
-<meta property="og:description" content="树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。 主要步骤：通过两次dfs把树剖分为链，再用线段树维护，查询的时候$O(\log n)$向上跳，再每次$O(\log n)$查询。 dfs1：确定每个点的depth、size、father、son（重儿子）。 dfs2：确定每">
+<meta property="og:description" content="树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-18T01:09:02.326Z">
+<meta property="og:updated_time" content="2019-06-16T03:43:03.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树链剖分">
-<meta name="twitter:description" content="树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。 主要步骤：通过两次dfs把树剖分为链，再用线段树维护，查询的时候$O(\log n)$向上跳，再每次$O(\log n)$查询。 dfs1：确定每个点的depth、size、father、son（重儿子）。 dfs2：确定每">
+<meta name="twitter:description" content="树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。">
 
 
 
@@ -444,12 +444,24 @@
                 
               
 
-              <time title="创建时间：2019-05-18 08:37:14 / 修改时间：09:09:02" itemprop="dateCreated datePublished" datetime="2019-05-18T08:37:14+08:00">2019-05-18</time>
+              <time title="创建时间：2019-05-18 08:37:14" itemprop="dateCreated datePublished" datetime="2019-05-18T08:37:14+08:00">2019-05-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-16 11:43:03" itemprop="dateModified" datetime="2019-06-16T11:43:03+08:00">2019-06-16</time>
               
             
           </span>
@@ -493,6 +505,7 @@
 
       
         <p>树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。</p>
+<a id="more"></a>
 <p>主要步骤：通过两次dfs把树剖分为链，再用线段树维护，查询的时候$O(\log n)$向上跳，再每次$O(\log n)$查询。</p>
 <p>dfs1：确定每个点的depth、size、father、son（重儿子）。</p>
 <p>dfs2：确定每个点的dfn、top（链顶所在的点）。先搜索重儿子，再搜轻儿子。</p>

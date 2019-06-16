@@ -142,18 +142,18 @@
 
 
 
-  <meta name="description" content="点分治是一种处理树上点对问题及其类似问题的方法。 主要用来处理树上带有边权的特定条件点对的计数和判定。主要思想是将所有路径分为过根节点和不过根节点的路径，每次统计过根节点的路径，再去递归地子树内统计其他路径。可以选树的重心作为根节点，这样每次递归后树的大小至少会减少一半，总共需要统计$O(\log n)$棵树。 主要有几个函数： findroot：找到根节点。通过树形dp，每次更新size，使得除">
+  <meta name="description" content="点分治是一种处理树上点对问题及其类似问题的方法。">
 <meta name="keywords" content="点分治">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点分治">
 <meta property="og:url" content="vozeo.xyz/2019/05/18/点分治/index.html">
 <meta property="og:site_name" content="Vozeo&#39;s Blog">
-<meta property="og:description" content="点分治是一种处理树上点对问题及其类似问题的方法。 主要用来处理树上带有边权的特定条件点对的计数和判定。主要思想是将所有路径分为过根节点和不过根节点的路径，每次统计过根节点的路径，再去递归地子树内统计其他路径。可以选树的重心作为根节点，这样每次递归后树的大小至少会减少一半，总共需要统计$O(\log n)$棵树。 主要有几个函数： findroot：找到根节点。通过树形dp，每次更新size，使得除">
+<meta property="og:description" content="点分治是一种处理树上点对问题及其类似问题的方法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-18T02:11:56.700Z">
+<meta property="og:updated_time" content="2019-06-16T03:42:34.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="点分治">
-<meta name="twitter:description" content="点分治是一种处理树上点对问题及其类似问题的方法。 主要用来处理树上带有边权的特定条件点对的计数和判定。主要思想是将所有路径分为过根节点和不过根节点的路径，每次统计过根节点的路径，再去递归地子树内统计其他路径。可以选树的重心作为根节点，这样每次递归后树的大小至少会减少一半，总共需要统计$O(\log n)$棵树。 主要有几个函数： findroot：找到根节点。通过树形dp，每次更新size，使得除">
+<meta name="twitter:description" content="点分治是一种处理树上点对问题及其类似问题的方法。">
 
 
 
@@ -444,12 +444,24 @@
                 
               
 
-              <time title="创建时间：2019-05-18 09:35:35 / 修改时间：10:11:56" itemprop="dateCreated datePublished" datetime="2019-05-18T09:35:35+08:00">2019-05-18</time>
+              <time title="创建时间：2019-05-18 09:35:35" itemprop="dateCreated datePublished" datetime="2019-05-18T09:35:35+08:00">2019-05-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-16 11:42:34" itemprop="dateModified" datetime="2019-06-16T11:42:34+08:00">2019-06-16</time>
               
             
           </span>
@@ -493,6 +505,7 @@
 
       
         <p>点分治是一种处理树上点对问题及其类似问题的方法。</p>
+<a id="more"></a>
 <p>主要用来处理树上带有边权的特定条件点对的计数和判定。主要思想是将所有路径分为过根节点和不过根节点的路径，每次统计过根节点的路径，再去递归地子树内统计其他路径。可以选树的重心作为根节点，这样每次递归后树的大小至少会减少一半，总共需要统计$O(\log n)$棵树。</p>
 <p>主要有几个函数：</p>
 <p>findroot：找到根节点。通过树形dp，每次更新size，使得除去当前节点后剩余的最大的树最小，以前访问过的不再访问。</p>

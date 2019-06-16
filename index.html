@@ -442,12 +442,24 @@
                 
               
 
-              <time title="创建时间：2019-05-18 09:35:35 / 修改时间：10:11:56" itemprop="dateCreated datePublished" datetime="2019-05-18T09:35:35+08:00">2019-05-18</time>
+              <time title="创建时间：2019-05-18 09:35:35" itemprop="dateCreated datePublished" datetime="2019-05-18T09:35:35+08:00">2019-05-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-16 11:42:34" itemprop="dateModified" datetime="2019-06-16T11:42:34+08:00">2019-06-16</time>
               
             
           </span>
@@ -491,16 +503,16 @@
 
       
         
+          <p>点分治是一种处理树上点对问题及其类似问题的方法。</p>
+          <!--noindex-->
           
-            <p>点分治是一种处理树上点对问题及其类似问题的方法。</p>
-<p>主要用来处理树上带有边权的特定条件点对的计数和判定。主要思想是将所有路径分为过根节点和不过根节点的路径，每次统计过根节点的路径，再去递归地子树内统计其他路径。可以选树的重心作为根节点，这样每次递归后树的大小至少会减少一半，总共需要统计$O(\log n)$棵树。</p>
-<p>主要有几个函数：</p>
-<p>findroot：找到根节点。通过树形dp，每次更新size，使得除去当前节点后剩余的最大的树最小，以前访问过的不再访问。</p>
-<p>calculate：计算当前子树内产生的答案。常常是进行dfs，通过一个队列（栈）记录子树内所有的点到根节点的距离，再枚举点对或者扫描队列进行统计。且经常需要多次dfs来排除重复的解。</p>
-<p>getdis：即dfs计算每个节点的dis。</p>
-<p>dfs：主工作函数。找到根节点后从这里dfs计算距离，常常需要多次调用calculate排除重复解。</p>
-
-          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/18/点分治/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
         
       
     </div>
@@ -600,12 +612,24 @@
                 
               
 
-              <time title="创建时间：2019-05-18 08:37:14 / 修改时间：09:09:02" itemprop="dateCreated datePublished" datetime="2019-05-18T08:37:14+08:00">2019-05-18</time>
+              <time title="创建时间：2019-05-18 08:37:14" itemprop="dateCreated datePublished" datetime="2019-05-18T08:37:14+08:00">2019-05-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-16 11:43:03" itemprop="dateModified" datetime="2019-06-16T11:43:03+08:00">2019-06-16</time>
               
             
           </span>
@@ -649,18 +673,16 @@
 
       
         
+          <p>树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。</p>
+          <!--noindex-->
           
-            <p>树链剖分是一种比较暴力的数据结构。原理是把树剖分成链，再用数据结构维护每一条链（一般是线段树）。可以快速查询和修改树上路径（点权、边权）等问题。习惯上树链剖分都指轻重链剖分。</p>
-<p>主要步骤：通过两次dfs把树剖分为链，再用线段树维护，查询的时候$O(\log n)$向上跳，再每次$O(\log n)$查询。</p>
-<p>dfs1：确定每个点的depth、size、father、son（重儿子）。</p>
-<p>dfs2：确定每个点的dfn、top（链顶所在的点）。先搜索重儿子，再搜轻儿子。</p>
-<p>如果没有父亲或者父亲的重儿子不是自己，top就是自己，否则就是父亲的top。</p>
-<p>这样搜索能保证每个点都在一条重链上，且每条重链在线段树上对应一段连续的区间，且每个子树也对应一段连续的区间。</p>
-<p>线段树建树：建树前先把权值放到每个点的dfn的位置，用dfn建树。</p>
-<p>查询：从两个点向上跳，每次找到深度较深的点，向上跳一条链，统计这一条链上的数据，在把当前点跳到<strong>链顶的父亲</strong>，直到两个点在同一条链上，最后区间查询两点即可。修改同理。复杂度$O(\log n)$。</p>
-<p>常见的套路就是和点权有关，且有修改，每次修改一条路径或者一颗子树，查询一条路径或者一颗子树的点权。</p>
-
-          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/18/树链剖分/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
         
       
     </div>
@@ -1949,7 +1971,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-16 11:40:11" itemprop="dateModified" datetime="2019-06-16T11:40:11+08:00">2019-06-16</time>
+                <time title="修改时间：2019-06-16 11:52:26" itemprop="dateModified" datetime="2019-06-16T11:52:26+08:00">2019-06-16</time>
               
             
           </span>
