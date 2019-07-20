@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[NOI2019游记和退役记]]></title>
+    <url>%2F2019%2F07%2F20%2FNOI2019%E6%B8%B8%E8%AE%B0%E5%92%8C%E9%80%80%E5%BD%B9%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[咕咕咕……]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[点分治]]></title>
     <url>%2F2019%2F05%2F18%2F%E7%82%B9%E5%88%86%E6%B2%BB%2F</url>
     <content type="text"><![CDATA[点分治是一种处理树上点对问题及其类似问题的方法。 主要用来处理树上带有边权的特定条件点对的计数和判定。主要思想是将所有路径分为过根节点和不过根节点的路径，每次统计过根节点的路径，再去递归地子树内统计其他路径。可以选树的重心作为根节点，这样每次递归后树的大小至少会减少一半，总共需要统计$O(\log n)$棵树。 主要有几个函数： findroot：找到根节点。通过树形dp，每次更新size，使得除去当前节点后剩余的最大的树最小，以前访问过的不再访问。 calculate：计算当前子树内产生的答案。常常是进行dfs，通过一个队列（栈）记录子树内所有的点到根节点的距离，再枚举点对或者扫描队列进行统计。且经常需要多次dfs来排除重复的解。 getdis：即dfs计算每个节点的dis。 dfs：主工作函数。找到根节点后从这里dfs计算距离，常常需要多次调用calculate排除重复解。]]></content>
